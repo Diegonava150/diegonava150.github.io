@@ -1,0 +1,74 @@
+<!--* REDES SOCIALES + CART -->
+<ul class="ul-base">
+    <li>
+        <a href="#" class="whatsapp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+    </li>
+    <li>
+        <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+    </li>
+    <li>
+        <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+    </li>
+    <li><a href="#"><i class="material-icons" id="cart">shopping_cart</i></a>
+    </li>
+</ul>
+
+<!-- 
+*Circled text
+
+ -->
+ .curved-text {
+    position: absolute;
+    display: inline-block;
+    margin: 0 auto;
+    bottom: 80%;
+    right: 40%;
+    color: var(--main-1st);
+}
+
+.curved-text span {
+    min-width: 0.5em;
+    text-align: center;
+    padding: 30px;
+    margin: 0px;
+}
+
+function updateCurvedText($curvedText, radius) {
+$curvedText.css("min-width", "initial");
+$curvedText.css("min-height", "initial");
+var w = $curvedText.width(),
+h = $curvedText.height();
+$curvedText.css("min-width", w + "px");
+$curvedText.css("min-height", h + "px");
+var text = $curvedText.text();
+var html = "";
+Array.from(text).forEach(function (letter) {
+html += `<span>${letter}</span>`;
+});
+$curvedText.html(html);
+var $letters = $curvedText.find("span");
+$letters.css({
+position: "absolute",
+height: `${radius}px`,
+// backgroundColor:"orange",
+transformOrigin: "bottom center"
+});
+
+var circleLength = 2 * Math.PI * radius;
+var angleRad = w / (2 * radius);
+var angle = 2 * angleRad * 180 / Math.PI / text.length;
+
+$letters.each(function (idx, el) {
+$(el).css({
+transform: `translate(${w / 2}px,0px) rotate(${idx * angle - text.length * angle / 2}deg)`
+})
+});
+}
+var $curvedText = $(".curved-text");
+updateCurvedText($curvedText, 500);
+function settingsChanged() {
+$curvedText.text($(".text").val());
+updateCurvedText($curvedText, $(".radius").val());
+}
+$(".radius").on("input change", settingsChanged);
+$(".text").on("input change", settingsChanged);

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        Zayro Disfraces
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--! Meta and Opengraph tags -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+</head>
+
+<body>
+    <!--! NAVBAR MOBILE-->
+    <nav class="sidebar">
+        <div class="nav-header">
+            <div class="logo-wrap">
+                <a class="logo-icon" href="#"><img alt="logo-icon" src="images/logo1.png" width="40" /></a>
+                <a class="logo-text" href="#">ZAYRO <span class="subtitle">DISFRACES</span></a>
+            </div>
+
+            <div class="nav-search">
+                <div class="search">
+                    <i class="material-icons">search</i>
+                    <input type="search" name="search" placeholder="Buscar" />
+                </div>
+            </div>
+        </div>
+        <ul class="nav-categories ul-base">
+            <li>
+                <a href="#">Inicio</a>
+            </li>
+            <li><a href="#">Disfraces</a></li>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="#">Zayro</a></li>
+        </ul>
+        <ul class="social ul-base">
+            <li>
+                <a href="#" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+                <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+                <a href="#" class="whatsapp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </li>
+        </ul>
+        <div class="copyright">
+            <span>&copy; 2023 - Zayro System</span>
+        </div>
+    </nav>
+    <!-- @end nav -->
+
+    <!--! header -->
+    <header>
+        <div class="header-inner clearfix">
+
+            <div class="nav-btn nav-slider">
+                <i class="material-icons" id="menu">menu</i>
+            </div>
+
+            <div class="header-login">
+                <button class="login"><a class="sign" id="modal_trigger" href="#modal">INICIA SESION</a></button>
+            </div>
+            <div id="modal" class="popupContainer" style="display:none;">
+                <header class="popupHeader">
+                    <center><span class="header_title">Iniciar Sesión</span></center>
+                    <span class="modal_close"><i class="fa fa-times"></i></span>
+                </header>
+                <section class="popupBody">
+                    <!-- Social Login -->
+                    <div class="social_login">
+                        <div class="">
+                            <a href="#" class="social_box fb">
+                                <span class="icon"><i class="fa fa-facebook"></i></span>
+                                <span class="icon_title">Conectar con Facebook</span>
+
+                            </a>
+
+                            <a href="#" class="social_box google">
+                                <span class="icon"><i class="fa fa-google-plus"></i></span>
+                                <span class="icon_title">Conectar con Google</span>
+                            </a>
+                        </div>
+
+                        <div class="centeredText">
+                            <span>O usa tu correo electrónico</span>
+                        </div>
+
+                        <div class="action_btns">
+                            <div class="one_half"><a href="#" id="login_form" class="btn">Iniciar</a></div>
+                            <div class="one_half last"><a href="#" id="register_form" class="btn">Registrar</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Username & Password Login form -->
+                    <div class="user_login">
+                        <form>
+                            <label>Correo</label>
+                            <center><input required type="email" /></center>
+                            <br />
+
+                            <label>Contraseña</label>
+                            <center><input required type="password" /></center>
+                            <br />
+
+                            <div class="checkbox">
+                                <input id="remember" type="checkbox" />
+                                <label for="remember">Recordar mi cuenta</label>
+                            </div>
+
+                            <div class="action_btns">
+                                <div class="one_half"><a href="#" class="btn back_btn"><i
+                                            class="fa fa-angle-double-left"></i> Volver</a></div>
+                                <div class="one_half last"><input type="submit" class="btn btn_red" value="Iniciar"/></div>
+                            </div>
+                        </form>
+
+                        <a href="#" class="forgot_password">
+                            <center>¿Olvidaste tu contraseña?</center>
+                        </a>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="user_register">
+                        <form>
+                            <label>Nombre completo</label>
+                            <center><input required type="text" /></center>
+                            <br />
+
+                            <label>Correo electrónico</label>
+                            <center><input required type="email" /></center>
+                            <br />
+
+                            <label>Contraseña</label>
+                            <center><input required type="password" /></center>
+                            <br />
+
+                            <div class="checkbox">
+                                <input id="send_updates" type="checkbox" />
+                                <label for="send_updates">Recibir correos promocionales</label>
+                            </div>
+
+                            <div class="action_btns">
+                                <div class="one_half"><a href="#" class="btn back_btn"><i
+                                            class="fa fa-angle-double-left"></i> Volver</a></div>
+                                <div class="one_half last"><input type="submit" class="btn btn_red" value="Registrarse"/></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="header-menu">
+                <h2 id="title">ZAYRO <span class="subtitle">DISFRACES</span></h2>
+            </div>
+
+            <div class="header-search">
+                <div class="search">
+                    <i class="material-icons"><img src="images/busqueda.png" onClick="location.href='500.html'"></i>
+                    <input type="search" name="search" placeholder="Buscar" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @end header -->
+
+    <!--! NAVBAR -->
+    <div class="navtitle">
+        <nav id="navbar-primary" class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbar-primary-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="active">INICIO</a></li>
+                        <li><a href="#disfraces-tab">DISFRACES</a></li>
+                        <li><a href="#">EVENTOS</a></li>
+                        <li><a href="#">ZAYRO</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+    </div>
+
+    <!--! carousel -->
+    <div class="container_carousel">
+        <div class="carousel">
+            <input type="radio" id="carousel-1" name="carousel[]" checked="">
+            <input type="radio" id="carousel-2" name="carousel[]">
+            <input type="radio" id="carousel-3" name="carousel[]">
+            <ul class="carousel__items">
+                <li class="carousel__item"><img src="images/main-carrusel.jpg" alt="">
+                    <div class="caption_item1">¡DESCUBRE EL PERSONAJE QUE ERES!</div>
+                </li>
+                <li class="carousel__item"><img src="images/main-carrusel2.jpg" alt="">
+                    <div class="caption_item2">EN NUESTRA<br><span class="subtitle2">TEMPORADA</span><br>DE HALLOWEEN
+                    </div>
+                    <div class="caption_item22">APROVECHA NUESTROS<br><span class="subtitle">DESCUENTOS</span></div>
+                </li>
+                <li class="carousel__item"><img src="images/main-carrusel3.jpg" alt="">
+                    <div class="caption_item2">ES <span class="subtitle2">HORA</span><br>DE FESTEJAR<br>SALIR Y CELEBRAR
+                    </div>
+                    <div class="caption_item22">CON <span class="subtitle">ZAYRO</span><br>TODO EL AÑO<br>ES CARNAVAL
+                    </div>
+                </li>
+
+            </ul>
+            <div class="carousel__prev">
+                <label for="carousel-1"></label>
+                <label for="carousel-2"></label>
+                <label for="carousel-3"></label>
+            </div>
+            <div class="carousel__next">
+                <label for="carousel-1"></label>
+                <label for="carousel-2"></label>
+                <label for="carousel-3"></label>
+            </div>
+            <div class="carousel__nav">
+                <label for="carousel-1"></label>
+                <label for="carousel-2"></label>
+                <label for="carousel-3"></label>
+            </div>
+        </div>
+    </div>
+
+    <!--! INFO  -->
+    <hr class="hr-text" data-content="¡No busques más!">
+    <div id="app" class="container">
+        <card data-image="images/carrusel2.jpg" onClick="location.href='404.html'">
+            <h1 slot="header">DISFRACES PARA CABALLEROS</h1>
+        </card>
+        <card data-image="images/carrusel6.jpg" onClick="location.href='404.html'">
+            <h1 slot="header">DISFRACES PARA DAMAS</h1>
+        </card>
+        <card data-image="images/carrusel1.jpg" onClick="location.href='404.html'">
+            <h1 slot="header">DISFRACES PARA EVENTOS</h1>
+        </card>
+        <card data-image="images/ninos.jpg" onClick="location.href='404.html'">
+            <h1 slot="header">DISFRACES PARA NIÑOS</h1>
+        </card>
+    </div>
+    <div class="info">
+        <hr class="hr-text2" data-content="¡Estás en el lugar correcto!">
+        <div id="info-div" class="info-div">
+            <div class="container-info">
+                <div class="collapse info-collapse" id="info-primary-collapse">
+                    <img class="donar" src="images/donar.png" alt="">
+                    <ul class="nav info-nav">
+                        <li><span class="material-symbols-outlined">
+                                workspace_premium
+                            </span> PRECIOS ACCESIBLES </li>
+                        <li><span class="material-symbols-outlined">
+                                workspace_premium
+                            </span> GRAN VARIEDAD DE DISEÑOS </li>
+                        <li><span class="material-symbols-outlined">
+                                workspace_premium
+                            </span> ACCESORIOS INCLUIDOS </li>
+                    </ul>
+                </div><!-- /.info-collapse -->
+            </div>
+        </div>
+    </div>
+    <hr id="disfraces-tab" class="hr-text3" data-content="Disfraces populares y de alta demanda">
+    <div id="root"></div>
+    <!-- Main content -->
+    <main role="main">
+    </main>
+    <!-- @end main -->
+
+    <!-- Footer -->
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3>Zayro<span class="subtitle"> Disfraces</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Inicio</a>
+                ·
+                <a href="#">Productos</a>
+                ·
+                <a href="#">Sobre Nosotros</a>
+                ·
+                <a href="#">Eventos</a>
+                ·
+                <a href="#">Contacto</a>
+            </p>
+
+            <p class="footer-company-name">Zayro Disfraces © 2023</p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-whatsapp"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p>¿Tienes unos minutos para darnos <span class="subtitle">tu opinión</span>?</p>
+
+            <form action="#" method="post">
+
+                <input type="text" name="email" placeholder="Nombre" required>
+                <input type="text" name="email" placeholder="Correo" required>
+                <textarea name="message" placeholder="Mensaje" required></textarea>
+                <input type="submit" class="btn btn_red" value="Enviar"/>
+
+            </form>
+
+        </div>
+
+    </footer>
+    <!-- @end footer -->
+
+    <div class="overlay"></div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='https://leanmodal.finelysliced.com.au/js/jquery.leanModal.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.7.0-alpha.2/umd/react.production.min.js'></script>
+    <script
+        src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.7.0-alpha.2/umd/react-dom.production.min.js'></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
