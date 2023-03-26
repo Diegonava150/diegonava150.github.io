@@ -127,7 +127,7 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-    font: 600 1.8rem;
+    font: 600 1.8rem 'Lemonada', cursive;
     background: var(--orange);
     -webkit-text-fill-color: var(--main-color);
     -webkit-background-clip: text;
@@ -170,7 +170,7 @@ body {
 
 .display {
     text-transform: uppercase;
-    font: 600 2rem;
+    font: 600 2rem 'Lemonada', cursive;
     background: #900C3E;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -836,7 +836,7 @@ tr td:last-child {
     }
 
     .display {
-        font: 600 1.5rem;
+        font: 600 1.5rem 'Lemonada', cursive;
     }
 
 }
