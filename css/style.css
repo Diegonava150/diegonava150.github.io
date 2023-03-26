@@ -377,7 +377,7 @@ header .header-search .search :-ms-input-placeholder {
     }
 
     header .header-menu {
-        margin: auto auto;
+        margin: auto 5px;
         text-align: center;
     }
 
