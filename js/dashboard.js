@@ -1,44 +1,83 @@
-var abc = document.getElementById('orderChart').getContext('2d');
-var orderChart = new Chart(abc, {
-  type: 'line',
-  data: {
-    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-    datasets: [{
-      label: 'Pedidos enviados',
-      data: [13, 19, 9, 13, 6, 3, 7],
-      backgroundColor: "rgba(26, 100, 156,0.6)"
-    }, {
-      label: 'Pedidos realizados ',
-      data: [5, 29, 5, 5, 2, 3, 10],
-      backgroundColor: "rgba(71, 175, 225,0.4)"
-    }]
-  }
-});
+let welcome;
+let date = new Date();
+let hour = date.getHours();
+let minute = date.getMinutes();
+let second = date.getSeconds();
+if (minute < 10) {
+	minute = "0" + minute;
+}
+if (second < 10) {
+	second = "0" + second;
+}
+if (hour < 12) {
+	welcome = "Buenos dias!";
+} else if (hour < 17) {
+	welcome = "Buenas tardes!";
+} else {
+	welcome = "Buenas noches!";
+}
 
- 
+function display(val) {
+	if (event.key === 'Enter') {
+		if ((val.value).length > 0) {
+			console.log(val.value)
+			customAlert(`Buscando: "${val.value}"`, 3500)
+		} else {
+			customWarn('Escribe lo que deseas buscar', 1500)
+		}
+	}
+}
 
-var def = document.getElementById("ticketChart").getContext('2d');
-var ticketChart = new Chart(def, {
-  type: 'horizontalBar',
-  data: {
-    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto","Septiembre", "Octubre",  "Noviembre", "Diciembre"],
-    datasets: [{
-      label: 'Metrica importante',
-      data: [169, 174, 195, 187, 140, 150, 189, 210, 175, 150, 193,139],
-      backgroundColor: [
-        'rgba(26, 100, 156,0.6)',
-        'rgba(71, 175, 225,0.4)',
-        'rgba(26, 100, 156,0.6)',
-        'rgba(71, 175, 225,0.4)',
-        'rgba(26, 100, 156,0.6)',
-        'rgba(71, 175, 225,0.4)',
-        'rgba(26, 100, 156,0.6)',
-        'rgba(71, 175, 225,0.4)',
-        'rgba(26, 100, 156,0.6)',
-        'rgba(71, 175, 225,0.4)',
-        'rgba(26, 100, 156,0.6)',
-        'rgba(71, 175, 225,0.4)'
-      ]
-    }]
-  }
-});
+
+$(document).ready(function () {
+	const body = document.querySelector('body');
+	const toggled = document.getElementById('toggle');
+	const media = window.matchMedia("(min-width:700px)")
+
+	toggled.onclick = function () {
+		body.classList.toggle('light');
+		toggled.classList.toggle('active')
+	}
+	if (media.matches) {
+		console.log(true)
+		$('#dashboard').mouseenter(function () {
+			this.innerHTML = `¡${welcome}`;
+		});
+		$('#dashboard').mouseleave(function () {
+			this.innerHTML = "Panel de control";
+		});
+		$('#kleenpulse').mouseenter(function () {
+			this.innerHTML = "Bienvenido";
+		});
+		$('#kleenpulse').mouseleave(function () {
+			this.innerHTML = "Zayro System";
+		});
+	} else {
+		console.log(false)
+	}
+
+
+
+})
+
+function customAlert(msg, duration) {
+	var styler = document.createElement("div");
+	styler.className = 'dis-wrap'
+
+	styler.innerHTML = "<h1 class='display'>" + msg + "</h1>";
+	setTimeout(function () {
+		styler.parentNode.removeChild(styler);
+	}, duration);
+	document.body.appendChild(styler);
+}
+
+function customWarn(msg, duration) {
+	var styler = document.createElement("div");
+	styler.className = 'dis-warn'
+
+	styler.innerHTML = "<h1 class='display'>" + msg + "</h1>";
+	setTimeout(function () {
+		styler.parentNode.removeChild(styler);
+	}, duration);
+	document.body.appendChild(styler);
+}

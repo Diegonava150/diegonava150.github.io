@@ -109,13 +109,13 @@
 
                     <!-- Username & Password Login form -->
                     <div class="user_login">
-                        <form>
+                        <form id="LogForm" autocomplete="off">
                             <label>Correo</label>
-                            <center><input required type="email" /></center>
+                            <center><input required type="email" id="login_username" /></center>
                             <br />
 
                             <label>Contraseña</label>
-                            <center><input required type="password" /></center>
+                            <center><input required type="password" id="login_password" /></center>
                             <br />
 
                             <div class="checkbox">
@@ -126,7 +126,8 @@
                             <div class="action_btns">
                                 <div class="one_half"><a href="#" class="btn back_btn"><i
                                             class="fa fa-angle-double-left"></i> Volver</a></div>
-                                <div class="one_half last"><input type="submit" class="btn btn_red" value="Iniciar"/></div>
+                                <div class="one_half last"><input type="reset" id="inic" onclick='validate()' class="btn btn_red"
+                                        value="Iniciar" /></div>
                             </div>
                         </form>
 
@@ -147,18 +148,23 @@
                             <br />
 
                             <label>Contraseña</label>
-                            <center><input required type="password" /></center>
+                            <center><input required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Debe contener por lo menos 8 caracteres, un número, una letra mayúscula y una minúscula"/>
+                            </center>
                             <br />
 
                             <div class="checkbox">
                                 <input id="send_updates" type="checkbox" />
-                                <label for="send_updates">Recibir correos promocionales</label>
+                                <label for="send_updates">Recibir correos promocionales<br></label>
+                                <input id="terms" type="checkbox" required />
+                                <label for="terms">Acepto términos y condiciones</label>
                             </div>
 
                             <div class="action_btns">
                                 <div class="one_half"><a href="#" class="btn back_btn"><i
                                             class="fa fa-angle-double-left"></i> Volver</a></div>
-                                <div class="one_half last"><input type="submit" class="btn btn_red" value="Registrarse"/></div>
+                                <div class="one_half last"><input type="submit" class="btn btn_red"
+                                        value="Registrarse" /></div>
                             </div>
                         </form>
                     </div>
@@ -239,10 +245,10 @@
     <hr class="hr-text" data-content="¡No busques más!">
     <div id="app" class="container">
         <card data-image="images/carrusel2.jpg" onClick="location.href='404.html'">
-            <h1 slot="header">DISFRACES PARA CABALLEROS</h1>
+            <h1 slot="header">DISFRACES PARA CABALLERO</h1>
         </card>
         <card data-image="images/carrusel6.jpg" onClick="location.href='404.html'">
-            <h1 slot="header">DISFRACES PARA DAMAS</h1>
+            <h1 slot="header">DISFRACES PARA DAMA</h1>
         </card>
         <card data-image="images/carrusel1.jpg" onClick="location.href='404.html'">
             <h1 slot="header">DISFRACES PARA EVENTOS</h1>
@@ -319,7 +325,7 @@
                 <input type="text" name="email" placeholder="Nombre" required>
                 <input type="text" name="email" placeholder="Correo" required>
                 <textarea name="message" placeholder="Mensaje" required></textarea>
-                <input type="submit" class="btn btn_red" value="Enviar"/>
+                <input type="submit" class="btn btn_red" value="Enviar" />
 
             </form>
 
