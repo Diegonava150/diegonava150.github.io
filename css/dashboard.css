@@ -170,7 +170,7 @@ body {
 
 .display {
     text-transform: uppercase;
-    font: 600 2rem rajdhani;
+    font: 600 2rem;
     background: #900C3E;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -836,7 +836,7 @@ tr td:last-child {
     }
 
     .display {
-        font: 600 1.5rem rajdhani;
+        font: 600 1.5rem;
     }
 
 }
@@ -962,7 +962,7 @@ tr td:last-child {
 
 .footer .word {
     text-transform: uppercase;
-    font-family: rajdhani;
+    font-family: 'Lemonada', cursive;
     color: #fff;
     font-weight: 900;
     text-align: center;
