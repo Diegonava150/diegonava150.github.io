@@ -385,7 +385,7 @@ header .header-search .search :-ms-input-placeholder {
         position: absolute;
         margin-left: 5px;
         margin-right: 5px;
-        right: 0;
+        right: 5%;
         top: 15px;
         width: 150px;
     }
@@ -983,7 +983,7 @@ header .header-search .search :-ms-input-placeholder {
     display: flex;
     width: 5%;
     margin: auto;
-    padding-top: 40px;
+    padding-bottom: 15px;
 }
 
 #info-div.info-div {
@@ -999,11 +999,12 @@ header .header-search .search :-ms-input-placeholder {
     columns: 3;
     list-style-position: inside;
     list-style: none;
+    margin: auto auto;
     padding: 0;
 }
 
 #info-div.info-div .info-nav>li {
-    padding: 50px;
+    font-size: 20px;
 }
 
 /* ! sign in - log in popup */
@@ -1265,6 +1266,7 @@ a.btn_red {
     height: 40rem;
     position: relative;
     width: calc(90rem);
+    overflow: hidden
 }
 
 .carousel__container {
@@ -1272,6 +1274,7 @@ a.btn_red {
     overflow: hidden;
     position: relative;
     width: 100%;
+    margin-top: 5px;
 }
 
 .carousel__slide-list {
@@ -1582,6 +1585,10 @@ a.btn_red {
         padding: 10px 35px;
     }
 
+    
+    #info-div.info-div .info-nav>li {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 800px) {

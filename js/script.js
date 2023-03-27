@@ -41,7 +41,7 @@ function validate(){
     }, 2000);
   }
   else{
-    alert("Inténtelo nuevamente por favor");
+    alert("Usuario no registrado, intentelo de nuevo");
   }
 }
 
