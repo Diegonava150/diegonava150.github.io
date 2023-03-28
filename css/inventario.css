@@ -764,7 +764,7 @@ b {
         display: none;
     }
 
-    .sidebar {
+    .sidebardas {
         left: -100% !important;
         margin-top: 4.5em;
         height: 95.7%;
@@ -1061,7 +1061,8 @@ b {
     padding: 4px 8px;
     border: 1px solid #BDBDBD;
     border-radius: 3px;
-    outline: none;
+    outline: none;color:#000000;
+
   }
   .NewItemTab input:focus {
     border-color: #536DFE;
