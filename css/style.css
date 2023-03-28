@@ -640,7 +640,9 @@ header .header-search .search :-ms-input-placeholder {
     position: relative;
 }
 
-
+.bxslider img {
+    width: 100%
+}
 /*! INFO  */
 
 .container {

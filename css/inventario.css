@@ -193,7 +193,7 @@ body {
 
 
 /* ===========SIDEBAR========== */
-.sidebar {
+.sidebardas {
     width: 250px;
     position: fixed;
     left: 0;
@@ -277,26 +277,26 @@ body {
 
 }
 
-#nav-toggle:checked+.sidebar {
+#nav-toggle:checked+.sidebardas {
     width: 70px;
 }
 
-#nav-toggle:checked+.sidebar {
+#nav-toggle:checked+.sidebardas {
     width: 70px;
 }
 
-#nav-toggle:checked+.sidebar .sidebar-brand,
-#nav-toggle:checked+.sidebar li {
+#nav-toggle:checked+.sidebardas .sidebar-brand,
+#nav-toggle:checked+.sidebardas li {
     padding-left: 1rem;
     text-align: center;
 }
 
-#nav-toggle:checked+.sidebar li a {
+#nav-toggle:checked+.sidebardas li a {
     padding-left: 0rem;
 }
 
-#nav-toggle:checked+.sidebar .sidebar-brand h2 span:last-child,
-#nav-toggle:checked+.sidebar li a span:last-child {
+#nav-toggle:checked+.sidebardas .sidebar-brand h2 span:last-child,
+#nav-toggle:checked+.sidebardas li a span:last-child {
     display: none;
 }
 
@@ -555,7 +555,7 @@ b {
     }
 
     to {
-        --num: 1500;
+        --num: 15;
     }
 }
 
@@ -565,7 +565,7 @@ b {
     }
 
     to {
-        --num: 60;
+        --num: 39;
     }
 }
 
@@ -575,7 +575,7 @@ b {
     }
 
     to {
-        --num: 600;
+        --num: 25;
     }
 }
 
@@ -585,7 +585,7 @@ b {
     }
 
     to {
-        --num: 100;
+        --num: 50;
     }
 }
 
@@ -654,32 +654,32 @@ b {
 }
 
 @media only screen and (max-width: 1200px) {
-    .sidebar {
+    .sidebardas {
         width: 70px;
     }
 
-    .sidebar {
+    .sidebardas {
         width: 70px;
     }
 
-    .sidebar .sidebar-brand,
-    .sidebar li {
+    .sidebardas .sidebar-brand,
+    .sidebardas li {
         padding-left: 1rem;
         text-align: center;
 
     }
 
-    .sidebar li a {
+    .sidebardas li a {
         margin-bottom: 2rem !important;
     }
 
-    .sidebar li a {
+    .sidebardas li a {
         padding-left: 0rem;
 
     }
 
-    .sidebar .sidebar-brand h2 span:last-child,
-    .sidebar li a span:last-child {
+    .sidebardas .sidebar-brand h2 span:last-child,
+    .sidebardas li a span:last-child {
         display: none;
     }
 
@@ -692,11 +692,11 @@ b {
         left: 70px;
     }
 
-    .sidebar {
+    .sidebardas {
         width: 70px;
     }
 
-    .sidebar:hover {
+    .sidebardas:hover {
         width: 345px;
         z-index: 200;
         background: rgba(0, 0, 0, .2);
@@ -704,24 +704,24 @@ b {
         box-shadow: 0 0 10px rgba(0, 0, 0, .4);
     }
 
-    .sidebar:hover .sidebar-brand,
-    .sidebar:hover li {
+    .sidebardas:hover .sidebar-brand,
+    .sidebardas:hover li {
         padding-left: 2rem;
         text-align: left;
     }
 
-    .sidebar:hover li a {
+    .sidebardas:hover li a {
         padding-left: 1rem;
         text-transform: uppercase;
         font-weight: 500;
     }
 
-    .sidebar:hover .sidebar-brand h2 span:last-child,
-    .sidebar:hover li a span:last-child {
+    .sidebardas:hover .sidebar-brand h2 span:last-child,
+    .sidebardas:hover li a span:last-child {
         display: inline;
     }
 
-    .sidebar:hover .sidebar-brand h2 span:first-child {
+    .sidebardas:hover .sidebar-brand h2 span:first-child {
         transform: translatey(5px);
     }
 }
@@ -951,26 +951,235 @@ b {
     border-radius: 10px;
 }
 
-.highcharts-background {
-    fill: rgba(0, 0, 0, .1);
-    color: #fff;
-}
 
+/* Inventario */
 
-.highcharts-container {
-    fill: #fff;
-    color: #fff;
-}
-
-
-@media (max-width: 551px) {
-    #highchart_container {
-        height: 3000px;
-    }
-}
-
-@media (min-width: 550px) {
-    #highchart_container {
-        height: 1400px;
-    }
-}
+.ProductsTab {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .ProductsTab .productTable, .ProductsTab td, .ProductsTab th {
+    border: 1px solid black;
+  }
+  .ProductsTab .productTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .ProductsTab .productTable td {
+    text-align: center;
+    padding: 2px 4px;
+  }
+  .ProductsTab .productTable .editButton {
+    opacity: 0.4;
+    transition: 0.2s;
+  }
+  .ProductsTab .productTable .editButton:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: #536DFE;
+  }
+  
+  .ProductCard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 202px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  .ProductCard .category {
+    display: block;
+    opacity: 0.9;
+    font-size: 12px;
+    padding: 8px;
+    padding-bottom: 4px;
+    color: #536DFE;
+    transition: 0.2s;
+  }
+  .ProductCard .category:hover {
+    cursor: pointer;
+    color: #8698fe;
+  }
+  .ProductCard .name {
+    font-weight: bold;
+    padding: 0px 8px;
+    padding-bottom: 4px;
+  }
+  .ProductCard .price {
+    text-align: right;
+    padding: 4px;
+    font-weight: 300;
+  }
+  .ProductCard .price span {
+    font-weight: bold;
+  }
+  .ProductCard p {
+    margin: 0px;
+    padding: 0px;
+  }
+  .ProductCard img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .NewItemTab {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .NewItemTab .formCheck-err {
+    border-color: red;
+  }
+  .NewItemTab button {
+    border: 1px solid black;
+    margin-top: 24px;
+    margin-left: 20%;
+    border-radius: 3px;
+    background: inherit;
+    padding: 8px 16px;
+    outline: none;
+    font-weight: bold;
+    font-family: inherit;
+    transition: 0.2s;
+  }
+  .NewItemTab button:hover {
+    cursor: pointer;
+    color: #43A047;
+    border-color: #43A047;
+  }
+  .NewItemTab label {
+    display: block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .NewItemTab input {
+    font-family: inherit;
+    padding: 4px 8px;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    outline: none;
+  }
+  .NewItemTab input:focus {
+    border-color: #536DFE;
+  }
+  .NewItemTab select {
+    font-family: inherit;
+    outline: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+  .NewItemTab select:focus {
+    border-color: #536DFE;
+  }
+  .NewItemTab select option:hover {
+    font-family: inherit;
+    background-color: #536DFE;
+    padding: 4px 8px;
+  }
+  .NewItemTab .newItem-input {
+    box-sizing: border-box;
+    min-width: 200px;
+    width: 30%;
+    margin-bottom: 32px;
+    padding-right: 24px;
+  }
+  .NewItemTab .newItem-preview {
+    box-sizing: border-box;
+    min-width: 202px;
+    width: 50%;
+  }
+  
+  .InventoryManagementApp {
+    min-height: 80vh;
+  }
+  .InventoryManagementApp .header {
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--for-heading);
+    margin: 0px;
+    padding: 8px;
+    font-size: 20px;
+    color: white;
+    font-weight: 300;
+  }
+  .InventoryManagementApp .header .bold-header {
+    font-weight: 400;
+  }
+  .InventoryManagementApp .title {
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--icon-color);
+    color: white;
+    margin: 0px;
+    padding: 16px 8px;
+    position: relative;
+    z-index: 99;
+  }
+  .InventoryManagementApp .app-body {
+    display: flex;
+    height: 100%;
+    min-height: 80vh;
+  }
+  
+  .Sidebar {
+    width: 100%;
+    max-width: 200px;
+    background: #ECEFF1;
+  }
+  .Sidebar ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+  }
+  .Sidebar ul .add-new-item {
+    background: var(--dark-text);
+    color: white;
+    font-weight: 400;
+    opacity: 1;
+    position: relative;
+    z-index: 3;
+  }
+  .Sidebar ul .add-new-item:hover {
+    background: var(--for-heading);
+  }
+  .Sidebar ul .active {
+    opacity: 1;
+    background: #fff;
+    position: relative;
+    z-index: 3;
+  }
+  .Sidebar ul .active:hover {
+    background: #fff;
+    cursor: default;
+  }
+  .Sidebar ul li {
+    box-sizing: border-box;
+    text-align: right;
+    width: 100%;
+    padding: 16px;
+    transition: 0.2s all;
+    font-weight: 300;
+  }
+  .Sidebar ul li:hover {
+    background: #CFD8DC;
+    cursor: pointer;
+  }
+  
+  .MyRouter {
+    width: 100%;
+    box-shadow: -3px 0px 6px rgba(0, 0, 0, 0.16);
+    box-sizing: border-box;
+    padding: 16px 24px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background-color: #fefefe;
+  }
+  .MyRouter h1 {
+    opacity: 0.9;
+    font-size: 24px;
+  }

@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Informes - Zayro Disfraces</title>
+    <title>Facturación - Zayro Disfraces</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/informes.css">
-
+    <link rel="stylesheet" href="css/factura.css">
 </head>
 
 <body>
@@ -34,7 +33,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="informes.html" class="active"><span class="fas fa-clipboard-list"></span>
+                    <a href="informes.html"><span class="fas fa-clipboard-list"></span>
                         <span>Informes</span>
                     </a>
                 </li>
@@ -49,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="factura.html"><span class="fas fa-receipt"></span>
+                    <a href="factura.html" class="active"><span class="fas fa-receipt"></span>
                         <span>Facturación</span>
                     </a>
                 </li>
@@ -89,9 +88,10 @@
     <div class="main-wrapper">
         <div class="main-content">
             <header>
-                <img src="images/logo2.png" alt="" width="80px" style="background-color:white; border-radius: 20px; margin-left: 50px;">
+                <img src="images/logo2.png" alt="" width="80px"
+                    style="background-color:white; border-radius: 20px; margin-left: 50px;">
                 <h2 class="heading" id="dashboard">
-                    Informes
+                    Facturación
                 </h2>
                 <label for="nav-toggle">
                     <span class="fas fa-bars"></span>
@@ -129,7 +129,7 @@
                     <div class="card-single">
                         <div>
                             <h1 id="customer"></h1>
-                            <span>Disfraces sin enviar</span>
+                            <span>Facturas realizadas de ventas en el día</span>
                         </div>
                         <div>
                             <span class="fas fa-users"></span>
@@ -138,7 +138,7 @@
                     <div class="card-single">
                         <div>
                             <h1 id="project"></h1>
-                            <span>Vistas en anuncios</span>
+                            <span>Facturas realizadas de alquiler en el día</span>
                         </div>
                         <div>
                             <span class="fas fa-clipboard"></span>
@@ -147,7 +147,7 @@
                     <div class="card-single">
                         <div>
                             <h1 id="order"></h1>
-                            <span>Facturas en la semana</span>
+                            <span>Facturas impresas</span>
                         </div>
                         <div>
                             <span class="fas fa-shopping-bag"></span>
@@ -158,7 +158,7 @@
                             <h1>
                                 <p id="income"></p>
                             </h1>
-                            <span>Ventas online</span>
+                            <span>Facturas enviadas al correo</span>
                         </div>
                         <div>
                             <span class="fas fa-theater-masks"></span>
@@ -169,28 +169,80 @@
                     <div class="projects">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="heading">Informes por barras</h3>
+                                <h3 class="heading">Plantilla Factura Venta</h3>
+                            </div>
+                            <div class="container" id="app">
+                                <div class="logo">
+                                    <h1>Logo</h1><img src="images/logo2.png" alt="Logo" />
+                                </div>
+                                <div class="company">
+                                    <div class="phone"><a href="tel:1-555-555-1234">(555) 555-1234</a></div>
+                                    <div class="email"><a href="mailto:info@email.com">zayrodisfraces@email.com</a>
+                                    </div>
+                                    <div class="address"><a href="https://goo.gl/maps" target="_blank">Bogotá</a></div>
+                                </div>
+                                <div class="invoice-info">
+                                    <div class="invoice-number">Factura: #AB00022</div>
+                                    <div class="date-created">Fecha creada: 28/03/23</div>
+                                </div>
+                                <div class="invoice-due">
+                                    <div class="total-due">Precio Total: &#65284;{{ totalDue | currency}}</div>
+                                    <div class="date-due">Fecha Pago: 29/03/23</div>
+                                </div>
+                                <div class="table invoice-list">
+                                    <div class="th tr">
+                                        <div class="td">Producto</div>
+                                        <div class="td">Precio</div>
+                                        <div class="td">Cantidad</div>
+                                        <div class="td">Precio</div>
+                                        <div class="td th-remove"></div>
+                                    </div>
+                                    <div class="tr item" v-for="(item, index) in items">
+                                        <div class="td">
+                                            <input v-model="item.name" />
+                                        </div>
+                                        <div class="td">&#65284;
+                                            <input type="number" v-model="item.cost" />
+                                        </div>
+                                        <div class="td">
+                                            <input type="number" v-model="item.quantity" />
+                                        </div>
+                                        <div class="td">
+                                            &#65284;{{ item.cost * item.quantity | currency }}</div>
+                                        <div class="td">
+                                            <div class="remove" @click="removeItem(index)">✕</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-item">
+                                    <button @click="addItem">&#43; Agregar nuevo producto</button>
+                                </div>
+                                <div class="invoice-total">
+                                    <div class="sub-total">Sub-Total: &#65284;{{ subTotal }}</div>
+                                    <div class="tax">IVA: &#65284;{{ salesTax | currency}}</div>
+                                    <div class="total">Total: &#65284;{{ totalDue | currency}}</div>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <div id="highchart_container" style="width: 100%; max-width: 800px; margin: 0 auto">
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+        </div>
 
-            </main>
-            <div class="footer">
-                <div class="word">
+        </main>
+        <div class="footer">
+            <div class="word">
 
-                    <p>Zayro System © 2023</p>
-                </div>
+                <p>Zayro System © 2023</p>
             </div>
         </div>
     </div>
+    </div>
     <!-- partial -->
-    <script src="js/informes.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+    <script src="js/factura.js"></script>
 </body>
 
 </html>

@@ -3,21 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Informes - Zayro Disfraces</title>
+    <title>Inventario - Zayro Disfraces</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/informes.css">
-
+    <link rel="stylesheet" href="css/inventario.css">
 </head>
 
 <body>
     <!-- partial:index.partial.html -->
     <input type="checkbox" id="nav-toggle">
 
-    <div class="sidebar">
+    <div class="sidebardas">
         <div class="sidebar-brand">
             <h2><span><i class="fas fa-mask"></i></span><span id="kleenpulse">Zayro System</span></h2>
         </div>
@@ -34,7 +33,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="informes.html" class="active"><span class="fas fa-clipboard-list"></span>
+                    <a href="informes.html"><span class="fas fa-clipboard-list"></span>
                         <span>Informes</span>
                     </a>
                 </li>
@@ -44,7 +43,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="inventario.html"><span class="fas fa-table"></span>
+                    <a href="inventario.html" class="active"><span class="fas fa-table"></span>
                         <span>Inventario</span>
                     </a>
                 </li>
@@ -89,9 +88,10 @@
     <div class="main-wrapper">
         <div class="main-content">
             <header>
-                <img src="images/logo2.png" alt="" width="80px" style="background-color:white; border-radius: 20px; margin-left: 50px;">
+                <img src="images/logo2.png" alt="" width="80px"
+                    style="background-color:white; border-radius: 20px; margin-left: 50px;">
                 <h2 class="heading" id="dashboard">
-                    Informes
+                    Inventario
                 </h2>
                 <label for="nav-toggle">
                     <span class="fas fa-bars"></span>
@@ -129,7 +129,7 @@
                     <div class="card-single">
                         <div>
                             <h1 id="customer"></h1>
-                            <span>Disfraces sin enviar</span>
+                            <span>Nuevos clientes</span>
                         </div>
                         <div>
                             <span class="fas fa-users"></span>
@@ -138,7 +138,7 @@
                     <div class="card-single">
                         <div>
                             <h1 id="project"></h1>
-                            <span>Vistas en anuncios</span>
+                            <span>Nuevos productos</span>
                         </div>
                         <div>
                             <span class="fas fa-clipboard"></span>
@@ -147,7 +147,7 @@
                     <div class="card-single">
                         <div>
                             <h1 id="order"></h1>
-                            <span>Facturas en la semana</span>
+                            <span>Interacciones en la base de datos</span>
                         </div>
                         <div>
                             <span class="fas fa-shopping-bag"></span>
@@ -158,7 +158,7 @@
                             <h1>
                                 <p id="income"></p>
                             </h1>
-                            <span>Ventas online</span>
+                            <span>Registros se deben respaldar en la copia de seguridad</span>
                         </div>
                         <div>
                             <span class="fas fa-theater-masks"></span>
@@ -169,28 +169,30 @@
                     <div class="projects">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="heading">Informes por barras</h3>
+                                <h3 class="heading">Inventario Productos</h3>
                             </div>
                             <div class="card-body">
-                                <div id="highchart_container" style="width: 100%; max-width: 800px; margin: 0 auto">
+                                <div id='app'>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+        </div>
 
-            </main>
-            <div class="footer">
-                <div class="word">
+        </main>
+        <div class="footer">
+            <div class="word">
 
-                    <p>Zayro System © 2023</p>
-                </div>
+                <p>Zayro System © 2023</p>
             </div>
         </div>
     </div>
+    </div>
     <!-- partial -->
-    <script src="js/informes.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
+    <script src="js/inventario.js"></script>
 </body>
 
 </html>

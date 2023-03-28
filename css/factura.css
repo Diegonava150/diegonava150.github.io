@@ -555,7 +555,7 @@ b {
     }
 
     to {
-        --num: 1500;
+        --num: 15;
     }
 }
 
@@ -565,7 +565,7 @@ b {
     }
 
     to {
-        --num: 60;
+        --num: 39;
     }
 }
 
@@ -575,7 +575,7 @@ b {
     }
 
     to {
-        --num: 600;
+        --num: 25;
     }
 }
 
@@ -585,7 +585,7 @@ b {
     }
 
     to {
-        --num: 100;
+        --num: 50;
     }
 }
 
@@ -951,26 +951,141 @@ b {
     border-radius: 10px;
 }
 
-.highcharts-background {
-    fill: rgba(0, 0, 0, .1);
-    color: #fff;
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 30px 20px;
+    background: var(--color-dark);
+    box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    padding-bottom: 40px;
 }
 
-
-.highcharts-container {
-    fill: #fff;
-    color: #fff;
+.container>* {
+    display: flex;
+    flex: 1 100%;
+    padding: 10px 20px;
 }
 
-
-@media (max-width: 551px) {
-    #highchart_container {
-        height: 3000px;
-    }
+.container .logo {
+    justify-content: center;
+    align-items: center;
+    background: var(--for-heading);
+    height: 80px;
+    overflow: hidden;
 }
 
-@media (min-width: 550px) {
-    #highchart_container {
-        height: 1400px;
-    }
+.container .logo h1 {
+    display: none;
+}
+
+.container .logo img {
+    width: auto;
+    height: 80px;
+}
+
+.container .company {
+    justify-content: space-between;
+    padding: 5px 20px;
+    background: #eee;
+}
+
+.container .company a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: var(--dark-text);
+}
+
+.container .invoice-info,
+.container .invoice-due,
+.container .add-item,
+.container .invoice-total {
+    flex-flow: column wrap;
+    flex: 50%;
+}
+
+.container .invoice-info>*,
+.container .invoice-due>*,
+.container .add-item>*,
+.container .invoice-total>* {
+    align-items: stretch;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.container .table {
+    flex-flow: column;
+}
+
+.container .table .tr {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.container .table .th {
+    font-weight: 700;
+    background-color: #eee;
+    color: var(--dark-text);
+    border-top: 1px solid #ddd;
+}
+
+.container .table .td {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex: 4;
+    padding: 5px 20px;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .table .td input {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    color: var(--for-heading);
+}
+
+.container .invoice-list .tr {
+    border-left: 1px solid #ddd;
+}
+
+.container .invoice-list .td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.container .invoice-list .td:first-child {
+    flex-grow: 12;
+}
+
+.container .invoice-list .td:last-child {
+    flex-grow: 1;
+}
+
+.container .remove {
+    content: "+";
+    position: absolute;
+    line-height: 1rem;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px;
+    text-align: center;
+    background: #1b1443;
+    color: var(--text-grey);
+    cursor: pointer;
+}
+
+.container .add-item>button {
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-grey);
+    background: #1b1443;
 }

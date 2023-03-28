@@ -64,10 +64,12 @@ function validate() {
 $(function(){
   $('.bxslider').bxSlider({
     mode: 'horizontal',
-    captions: true,
-    slideWidth: 3500, // tamaño de slider
+    captions: false,
+    slideWidth: 1920, // tamaño de slider
     auto: true, // para que sea automatico
-    keyboardEnabled: true // para que puedas cambiar con
+    keyboardEnabled: true, // para que puedas cambiar con
+    speed: 500,
+    pause: 10000,
   });
 });
 
@@ -216,7 +218,7 @@ const _items = [
 
   {
     player: {
-      title: "Miles Morales - Spiderman",
+      title: "Miles Morales - Hombre araña",
       image: 'images/carrusel4.jpg'
     }
   },
