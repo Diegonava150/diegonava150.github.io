@@ -1,3 +1,17 @@
+/* Enter en inicio de sesion */
+const login_js = document.getElementById("login_password");
+login_js.addEventListener("keypress", function onEvent(event) {
+  if (event.key === "Enter") {
+    document.getElementById("inic").click();
+  }
+});
+
+const search_js = document.getElementById("searchh");
+search_js.addEventListener("keypress", function onEvent(event) {
+  if (event.key === "Enter") {
+    document.getElementById("search_img").click();
+  }
+});
 /* Dropdown */
 
 $(".dropdown-toggle").on("click", function (e) {
@@ -31,7 +45,7 @@ $(".overlay").on("click", function () {
 
 /* Login validation */
 
-function validate(){
+function validate() {
   var Ucheck = document.forms['LogForm']['login_username'].value;
   var Pcheck = document.forms['LogForm']['login_password'].value;
   if (Ucheck.trim() == 'olgada150@gmail.com' && Pcheck == 'olgada150') {
@@ -40,13 +54,24 @@ function validate(){
       window.location.href = "dashboard.html";
     }, 2000);
   }
-  else{
-    alert("Usuario no registrado, intentelo de nuevo");
+  else {
+    console("Usuario no registrado, intentelo de nuevo");
   }
 }
 
 /*
 ! CARRUSEL */
+$(function(){
+  $('.bxslider').bxSlider({
+    mode: 'horizontal',
+    captions: true,
+    slideWidth: 3500, // tamaño de slider
+    auto: true, // para que sea automatico
+    keyboardEnabled: true // para que puedas cambiar con
+  });
+});
+
+
 Vue.config.devtools = true;
 
 Vue.component('card', {
@@ -351,3 +376,7 @@ const Carousel = () => {
 };
 
 ReactDOM.render( /*#__PURE__*/React.createElement(Carousel, null), document.getElementById('root'));
+
+
+
+  

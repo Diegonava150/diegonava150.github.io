@@ -373,7 +373,7 @@ header .header-search .search :-ms-input-placeholder {
 
     #title {
         color: var(--main-1st);
-        font-size: 16px;
+        font-size: 13px;
     }
 
     header .header-menu {
@@ -631,229 +631,15 @@ header .header-search .search :-ms-input-placeholder {
 }
 
 /*!  CARRUSEL */
-.carousel>input[type=radio]:nth-child(3):checked~.carousel__next>label:nth-child(1),
-.carousel>input[type=radio]:nth-child(3):checked~.carousel__prev>label:nth-child(2),
-.carousel>input[type=radio]:nth-child(2):checked~.carousel__next>label:nth-child(3),
-.carousel>input[type=radio]:nth-child(2):checked~.carousel__prev>label:nth-child(1),
-.carousel>input[type=radio]:nth-child(1):checked~.carousel__next>label:nth-child(2),
-.carousel>input[type=radio]:nth-child(1):checked~.carousel__prev>label:nth-child(3) {
-    opacity: 1 !important;
-    z-index: 3;
+.bx-wrapper {
+    border: initial;
+    /* para eliminar el borde que trae por defecto */
 }
 
-.container_carousel {
-    width: auto;
-    min-width: 100px;
-    background: var(--main-1st);
-    margin-bottom: 20px;
-}
-
-.carousel {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-
-.carousel>input[type=radio] {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    top: 0;
-}
-
-.carousel>input[type=radio]:checked~.carousel__items .carousel__item,
-.carousel>input[type=radio]:checked~.carousel__prev>label,
-.carousel>input[type=radio]:checked~.carousel__next>label {
-    opacity: 0;
-}
-
-.carousel>input[type=radio]:nth-child(1):checked~.carousel__items .carousel__item:nth-child(1) {
-    opacity: 1;
-}
-
-.carousel>input[type=radio]:nth-child(1):checked~.carousel__nav>label:nth-child(1) {
-    background: var(--main-4th);
-    cursor: default;
-    pointer-events: none;
-}
-
-.carousel>input[type=radio]:nth-child(2):checked~.carousel__items .carousel__item:nth-child(2) {
-    opacity: 1;
-}
-
-.carousel>input[type=radio]:nth-child(2):checked~.carousel__nav>label:nth-child(2) {
-    background: var(--main-4th);
-    cursor: default;
-    pointer-events: none;
-}
-
-.carousel>input[type=radio]:nth-child(3):checked~.carousel__items .carousel__item:nth-child(3) {
-    opacity: 1;
-}
-
-.carousel>input[type=radio]:nth-child(3):checked~.carousel__nav>label:nth-child(3) {
-    background: var(--main-4th);
-    cursor: default;
-    pointer-events: none;
-}
-
-.caption_item1 {
-    position: absolute;
-    display: inline-block;
-    margin: 0 auto;
-    bottom: 36%;
-    right: 10%;
-    color: var(--main-1st);
-    font-size: 30px;
-    line-height: 1.8;
-}
-
-.caption_item2 {
-    position: absolute;
-    display: inline-block;
-    margin: 0 auto;
-    bottom: 36%;
-    left: 4%;
-    color: var(--main-1st);
-    font-size: 40px;
-    line-height: 1.2;
-    transform: rotate(337deg);
-    -webkit-transform: rotate(337deg);
-    -moz-transform: rotate(337deg);
-    -o-transform: rotate(337deg);
-    -ms-transform: rotate(337deg);
-}
-
-.caption_item22 {
-    position: absolute;
-    display: inline-block;
-    margin: 0 auto;
-    bottom: 36%;
-    left: 32%;
-    color: var(--main-1st);
-    font-size: 40px;
-    line-height: 1.2;
-    transform: rotate(337deg);
-    -webkit-transform: rotate(337deg);
-    -moz-transform: rotate(337deg);
-    -o-transform: rotate(337deg);
-    -ms-transform: rotate(337deg);
-}
-
-.subtitle2 {
-    color: var(--main-3rd);
-}
-
-.carousel__items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    width: 100%;
-    height: 450px;
+.slide-item {
     position: relative;
 }
 
-.carousel__item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    transition: opacity 2s;
-    -webkit-transition: opacity 2s;
-    text-align: center;
-}
-
-.carousel__item img {
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-}
-
-.carousel__prev>label,
-.carousel__next>label {
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: block;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    opacity: 0;
-    z-index: 2;
-}
-
-.carousel__prev>label:hover,
-.carousel__prev>label:focus,
-.carousel__next>label:hover,
-.carousel__next>label:focus {
-    opacity: 0.5 !important;
-}
-
-.carousel__prev>label:before,
-.carousel__prev>label:after,
-.carousel__next>label:before,
-.carousel__next>label:after {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-}
-
-.carousel__prev>label:before,
-.carousel__next>label:before {
-    background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
-    width: 60%;
-    height: 60%;
-    top: 20%;
-}
-
-.carousel__prev>label {
-    left: 2%;
-}
-
-.carousel__prev>label:before {
-    left: 35%;
-    top: 20%;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-}
-
-.carousel__next>label {
-    right: 2%;
-}
-
-.carousel__next>label:before {
-    left: 10%;
-    transform: rotate(315deg);
-    -webkit-transform: rotate(315deg);
-}
-
-.carousel__nav {
-    position: absolute;
-    bottom: 3%;
-    left: 0;
-    text-align: center;
-    width: 100%;
-    z-index: 3;
-}
-
-.carousel__nav>label {
-    border: none;
-    display: inline-block;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 0 0.125%;
-    width: 20px;
-    height: 20px;
-    background: var(--main-1st);
-}
 
 /*! INFO  */
 
@@ -979,13 +765,6 @@ header .header-search .search :-ms-input-placeholder {
     display: flexbox;
 }
 
-.donar {
-    display: flex;
-    width: 5%;
-    margin: auto;
-    padding-bottom: 15px;
-}
-
 #info-div.info-div {
     background: transparent;
     border: none;
@@ -999,7 +778,7 @@ header .header-search .search :-ms-input-placeholder {
     columns: 3;
     list-style-position: inside;
     list-style: none;
-    margin: auto auto;
+    margin: 55px auto;
     padding: 0;
 }
 
@@ -1585,7 +1364,7 @@ a.btn_red {
         padding: 10px 35px;
     }
 
-    
+
     #info-div.info-div .info-nav>li {
         font-size: 15px;
     }
@@ -1620,4 +1399,3 @@ a.btn_red {
         float: none;
     }
 }
-

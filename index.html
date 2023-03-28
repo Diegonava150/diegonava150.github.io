@@ -18,7 +18,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         <div class="nav-header">
             <div class="logo-wrap">
                 <a class="logo-icon" href="#"><img alt="logo-icon" src="images/logo1.png" width="40" /></a>
-                <a class="logo-text" href="#">ZAYRO <span class="subtitle">DISFRACES</span></a>
+                <a class="logo-text" href="index.html">ZAYRO <span class="subtitle">DISFRACES</span></a>
             </div>
 
             <div class="nav-search">
@@ -126,8 +126,8 @@
                             <div class="action_btns">
                                 <div class="one_half"><a href="#" class="btn back_btn"><i
                                             class="fa fa-angle-double-left"></i> Volver</a></div>
-                                <div class="one_half last"><input type="reset" id="inic" onclick='validate()' class="btn btn_red"
-                                        value="Iniciar" /></div>
+                                <div class="one_half last"><input type="submit" id="inic"
+                                        onclick='validate();return false;' class="btn btn_red" value="Iniciar" /></div>
                             </div>
                         </form>
 
@@ -149,7 +149,7 @@
 
                             <label>Contraseña</label>
                             <center><input required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Debe contener por lo menos 8 caracteres, un número, una letra mayúscula y una minúscula"/>
+                                    title="Debe contener por lo menos 8 caracteres, un número, una letra mayúscula y una minúscula" />
                             </center>
                             <br />
 
@@ -171,13 +171,14 @@
                 </section>
             </div>
             <div class="header-menu">
-                <h2 id="title">ZAYRO <span class="subtitle">DISFRACES</span></h2>
+                <h2 id="title" onclick="location.href='index.html';">ZAYRO <span class="subtitle">DISFRACES</span></h2>
             </div>
 
             <div class="header-search">
                 <div class="search">
-                    <i class="material-icons"><img src="images/busqueda.png" onClick="location.href='500.html'"></i>
-                    <input type="search" name="search" placeholder="Buscar" />
+                    <i class="material-icons"><img src="images/busqueda.png" id="search_img"
+                            onClick="location.href='500.html'"></i>
+                    <input type="search" id="searchh" name="search" placeholder="Buscar" />
                 </div>
             </div>
         </div>
@@ -201,45 +202,16 @@
     </div>
 
     <!--! carousel -->
-    <div class="container_carousel">
-        <div class="carousel">
-            <input type="radio" id="carousel-1" name="carousel[]" checked="">
-            <input type="radio" id="carousel-2" name="carousel[]">
-            <input type="radio" id="carousel-3" name="carousel[]">
-            <ul class="carousel__items">
-                <li class="carousel__item"><img src="images/main-carrusel.jpg" alt="">
-                    <div class="caption_item1">¡DESCUBRE EL PERSONAJE QUE ERES!</div>
-                </li>
-                <li class="carousel__item"><img src="images/main-carrusel2.jpg" alt="">
-                    <div class="caption_item2">EN NUESTRA<br><span class="subtitle2">TEMPORADA</span><br>DE HALLOWEEN
-                    </div>
-                    <div class="caption_item22">APROVECHA NUESTROS<br><span class="subtitle">DESCUENTOS</span></div>
-                </li>
-                <li class="carousel__item"><img src="images/main-carrusel3.jpg" alt="">
-                    <div class="caption_item2">ES <span class="subtitle2">HORA</span><br>DE FESTEJAR<br>SALIR Y CELEBRAR
-                    </div>
-                    <div class="caption_item22">CON <span class="subtitle">ZAYRO</span><br>TODO EL AÑO<br>ES CARNAVAL
-                    </div>
-                </li>
 
-            </ul>
-            <div class="carousel__prev">
-                <label for="carousel-1"></label>
-                <label for="carousel-2"></label>
-                <label for="carousel-3"></label>
-            </div>
-            <div class="carousel__next">
-                <label for="carousel-1"></label>
-                <label for="carousel-2"></label>
-                <label for="carousel-3"></label>
-            </div>
-            <div class="carousel__nav">
-                <label for="carousel-1"></label>
-                <label for="carousel-2"></label>
-                <label for="carousel-3"></label>
-            </div>
-        </div>
-    </div>
+    <ul class="bxslider">
+        <li class="slide-item"><img src="images/primera.jpg" alt="" />
+        </li>
+        <li class="slide-item"><img src="images/segunda.jpg" alt="" />
+        </li>
+        <li class="slide-item"><img src="images/tercera.jpg" alt="" />
+        </li>
+    </ul>
+
 
     <!--! INFO  -->
     <hr class="hr-text" data-content="¡No busques más!">
@@ -262,7 +234,6 @@
         <div id="info-div" class="info-div">
             <div class="container-info">
                 <div class="collapse info-collapse" id="info-primary-collapse">
-                    <img class="donar" src="images/donar.png" alt="">
                     <ul class="nav info-nav">
                         <li><span class="material-symbols-outlined">
                                 workspace_premium
@@ -320,13 +291,11 @@
 
             <p>¿Tienes unos minutos para darnos <span class="subtitle">tu opinión</span>?</p>
 
-            <form action="#" method="post">
-
-                <input type="text" name="email" placeholder="Nombre" required>
-                <input type="text" name="email" placeholder="Correo" required>
+            <form>
+                <input type="text" name="Username" placeholder="Nombre" required />
+                <input type="email" name="email" placeholder="Correo" required />
                 <textarea name="message" placeholder="Mensaje" required></textarea>
                 <input type="submit" class="btn btn_red" value="Enviar" />
-
             </form>
 
         </div>
@@ -336,12 +305,12 @@
 
     <div class="overlay"></div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='https://leanmodal.finelysliced.com.au/js/jquery.leanModal.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.7.0-alpha.2/umd/react.production.min.js'></script>
     <script
         src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.7.0-alpha.2/umd/react-dom.production.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
