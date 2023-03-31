@@ -109,7 +109,7 @@ const app = new Vue({
 			return this.items.reduce((accumulate, item) => accumulate + item.cost * item.quantity, 0);
 		},
 		salesTax() {
-			return this.subTotal * .08875;
+			return this.subTotal * 0.08875;
 		},
 		totalDue() {
 			return this.subTotal + this.salesTax;
