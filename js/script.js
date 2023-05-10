@@ -61,7 +61,7 @@ function validate() {
 
 /*
 ! CARRUSEL */
-$(function(){
+$(function () {
   $('.bxslider').bxSlider({
     mode: 'horizontal',
     captions: false,
@@ -200,18 +200,13 @@ $(function () {
 /*
 ! PRODUCT SLIDER  */
 
-/************************************
-1. If you want to add or remove items you will need to change a variable called $slide-count in the CSS *minimum 3 slides
-
-2. if you want to change the dimensions of the slides you will need to edit the slideWidth variable here 👇 and the $slide-width variable in the CSS.
-************************************/
 const slideWidth = 30;
 
 const _items = [
   {
     player: {
       title: 'Camuflaje Militar',
-      image: 'images/carrusel3.jpg'
+      image: 'images/carrusel3.webp'
     }
   },
 
@@ -219,7 +214,7 @@ const _items = [
   {
     player: {
       title: "Miles Morales - Hombre araña",
-      image: 'images/carrusel4.jpg'
+      image: 'images/carrusel4.webp'
     }
   },
 
@@ -227,7 +222,7 @@ const _items = [
   {
     player: {
       title: 'Monstruo de Frankenstein',
-      image: 'images/carrusel5.jpg'
+      image: 'images/carrusel5.webp'
     }
   },
 
@@ -235,7 +230,7 @@ const _items = [
   {
     player: {
       title: 'Aprendiz de Bruja',
-      image: 'images/carrusel6.jpg'
+      image: 'images/carrusel6.webp'
     }
   },
 
@@ -243,7 +238,7 @@ const _items = [
   {
     player: {
       title: 'Espantapájaros',
-      image: 'images/carrusel7.jpg'
+      image: 'images/carrusel7.webp'
     },
   }];
 
@@ -381,4 +376,3 @@ ReactDOM.render( /*#__PURE__*/React.createElement(Carousel, null), document.getE
 
 
 
-  
