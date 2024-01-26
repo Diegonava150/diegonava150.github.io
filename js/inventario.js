@@ -244,7 +244,7 @@ class NewItemTab extends React.Component {
 
 					React.createElement("p", null, /*#__PURE__*/
 						React.createElement("label", null, "Link de Imagen"), /*#__PURE__*/
-						React.createElement("input", { className: this.state.formErrors.imageURL == true ? 'formCheck-err' : '', type: "text", required: true, id: "newItemForm-imageURL", value: this.props.formData.imageURL, onChange: () => this.updateForm(), placeholder: "Pega el link aquí" })), /*#__PURE__*/
+						React.createElement("input", { className: this.state.formErrors.imageURL == true ? 'formCheck-err' : '', type: "text", id: "newItemForm-imageURL", value: this.props.formData.imageURL, onChange: () => this.updateForm(), placeholder: "Pega el link aquí" })), /*#__PURE__*/
 
 					React.createElement("button", { onClick: () => this.checkForm() }, "Add Product")), /*#__PURE__*/
 
