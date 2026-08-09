@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Diego Navarro — QA Lead → SDET</title>
+    <meta
+      name="description"
+      content="Diego Jose Navarro Ruiz — QA Lead transitioning into SDET. Test automation across gaming, web, mobile & streaming with Playwright, Selenium, CI/CD and API testing."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0f14'/><text x='50' y='68' font-size='54' font-family='monospace' fill='%234ec9b0' text-anchor='middle'>&gt;_</text></svg>"
+    />
+    <script>
+      // Dark-first, no-flash theme init (honors saved choice).
+      (function () {
+        try {
+          var t = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <style>
+      /* ---------- tokens ---------- */
+      :root,
+      :root[data-theme='dark'] {
+        --bg: #0b0f14;
+        --bg-elev: #121821;
+        --panel: #0f151d;
+        --border: #1f2a37;
+        --text: #e6edf3;
+        --muted: #93a1b0;
+        --faint: #61707f;
+        --accent: #4ec9b0;
+        --accent-2: #6cb6ff;
+        --pass: #3fb950;
+        --shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
+        color-scheme: dark;
+      }
+      :root[data-theme='light'] {
+        --bg: #f4f7fa;
+        --bg-elev: #ffffff;
+        --panel: #ffffff;
+        --border: #dbe3ec;
+        --text: #14202b;
+        --muted: #566473;
+        --faint: #8695a4;
+        --accent: #0f9488;
+        --accent-2: #1f6feb;
+        --pass: #1a7f37;
+        --shadow: 0 12px 32px -16px rgba(20, 33, 46, 0.25);
+        color-scheme: light;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      :root {
+        --mono:
+          ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo,
+          Consolas, monospace;
+      }
+      a {
+        color: var(--accent-2);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .wrap {
+        width: min(1080px, 92vw);
+        margin-inline: auto;
+      }
+      section {
+        padding: 72px 0;
+        border-top: 1px solid var(--border);
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        color: var(--accent);
+        letter-spacing: 0.02em;
+        margin: 0 0 10px;
+      }
+      h2 {
+        font-family: var(--mono);
+        font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+        margin: 0 0 28px;
+        letter-spacing: -0.01em;
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
+      }
+
+      /* ---------- nav ---------- */
+      header.nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(10px);
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-in {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .brand {
+        font-family: var(--mono);
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.04em;
+      }
+      .brand span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 26px;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-family: var(--mono);
+      }
+      .nav-links a:hover {
+        color: var(--text);
+        text-decoration: none;
+      }
+      .toggle {
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        color: var(--text);
+        width: 38px;
+        height: 34px;
+        border-radius: 9px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+      }
+      .toggle:hover {
+        border-color: var(--accent);
+      }
+      @media (max-width: 720px) {
+        .nav-links a:not(.toggle-wrap) {
+          display: none;
+        }
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        border-top: none;
+        padding: clamp(48px, 9vw, 96px) 0 72px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 48px;
+        align-items: center;
+      }
+      @media (max-width: 880px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--pass);
+        border: 1px solid color-mix(in srgb, var(--pass) 40%, var(--border));
+        background: color-mix(in srgb, var(--pass) 12%, transparent);
+        padding: 5px 12px;
+        border-radius: 999px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--pass);
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--pass) 70%, transparent);
+        animation: pulse 2.4s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 color-mix(in srgb, var(--pass) 60%, transparent);
+        }
+        70% {
+          box-shadow: 0 0 0 7px transparent;
+        }
+        100% {
+          box-shadow: 0 0 0 0 transparent;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .dot {
+          animation: none;
+        }
+      }
+      .hero h1 {
+        font-family: var(--mono);
+        font-size: clamp(2.3rem, 6.5vw, 3.6rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin: 18px 0 6px;
+        text-wrap: balance;
+      }
+      .hero .role {
+        font-family: var(--mono);
+        font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+        color: var(--accent);
+        margin: 0 0 18px;
+      }
+      .hero .role .arrow {
+        color: var(--faint);
+      }
+      .hero .lede {
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 46ch;
+        margin: 0 0 28px;
+      }
+      .avatar {
+        position: relative;
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--accent);
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--accent) 28%, var(--panel)),
+          var(--panel)
+        );
+        color: var(--accent);
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 0.04em;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow);
+      }
+      .avatar img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid var(--border);
+        cursor: pointer;
+      }
+      .btn svg {
+        width: 17px;
+        height: 17px;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #04110d;
+        border-color: var(--accent);
+      }
+      .btn-primary:hover {
+        text-decoration: none;
+        filter: brightness(1.08);
+      }
+      .btn-ghost {
+        background: var(--bg-elev);
+        color: var(--text);
+      }
+      .btn-ghost:hover {
+        text-decoration: none;
+        border-color: var(--accent);
+      }
+
+      /* terminal */
+      .term {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        font-family: var(--mono);
+        font-size: 0.86rem;
+      }
+      .term-bar {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        background: color-mix(in srgb, var(--bg-elev) 70%, transparent);
+      }
+      .term-bar i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .term-bar .r {
+        background: #ff5f56;
+      }
+      .term-bar .y {
+        background: #ffbd2e;
+      }
+      .term-bar .g {
+        background: #27c93f;
+      }
+      .term-bar .file {
+        margin-left: 8px;
+        color: var(--faint);
+        font-size: 0.78rem;
+      }
+      .term-body {
+        padding: 16px 18px 20px;
+        white-space: pre-wrap;
+        line-height: 1.7;
+      }
+      .term-body .cmd {
+        color: var(--text);
+      }
+      .term-body .cmd::before {
+        content: '$ ';
+        color: var(--accent);
+      }
+      .term-body .muted {
+        color: var(--faint);
+      }
+      .term-body .ok {
+        color: var(--pass);
+      }
+      .term-body .k {
+        color: var(--accent);
+      }
+      .term-line {
+        opacity: 0;
+        transform: translateY(4px);
+        animation: line 0.4s ease forwards;
+      }
+      @keyframes line {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .term-line {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+      }
+
+      /* ---------- about ---------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 40px;
+      }
+      @media (max-width: 820px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+      }
+      .about-grid p {
+        color: var(--muted);
+        margin-top: 0;
+      }
+      .about-grid strong {
+        color: var(--text);
+      }
+      .specials {
+        list-style: none;
+        margin: 18px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .specials li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        color: var(--muted);
+      }
+      .specials .ic {
+        color: var(--accent);
+        font-family: var(--mono);
+        flex: none;
+      }
+      .facts {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 22px;
+        align-self: start;
+      }
+      .facts dl {
+        margin: 0;
+        display: grid;
+        gap: 14px;
+      }
+      .facts dt {
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--faint);
+      }
+      .facts dd {
+        margin: 3px 0 0;
+        color: var(--text);
+      }
+
+      /* ---------- skills ---------- */
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 18px;
+      }
+      .skillcard {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 20px;
+      }
+      .skillcard h3 {
+        font-family: var(--mono);
+        font-size: 0.9rem;
+        margin: 0 0 14px;
+        color: var(--accent);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--text);
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        padding: 5px 10px;
+        border-radius: 8px;
+      }
+
+      /* ---------- experience ---------- */
+      .timeline {
+        position: relative;
+        display: grid;
+        gap: 30px;
+      }
+      .tl {
+        position: relative;
+        padding-left: 30px;
+        border-left: 2px solid var(--border);
+      }
+      .tl:last-child {
+        border-left-color: transparent;
+      }
+      .tl::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 4px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 3px solid var(--accent);
+      }
+      .tl .when {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--faint);
+      }
+      .tl h3 {
+        margin: 6px 0 2px;
+        font-size: 1.15rem;
+      }
+      .tl .co {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .tl ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        display: grid;
+        gap: 7px;
+      }
+      .tl ul li::marker {
+        color: var(--accent);
+      }
+
+      /* ---------- projects ---------- */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card:hover {
+          transform: none;
+        }
+      }
+      .card.feature {
+        grid-column: 1 / -1;
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      }
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .card h3 {
+        margin: 0;
+        font-family: var(--mono);
+        font-size: 1.02rem;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .taglang {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--accent);
+        border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border));
+        padding: 3px 9px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .card .more {
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        margin-top: auto;
+      }
+      .feature-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 2px;
+      }
+      .feature-meta .chip {
+        font-size: 0.72rem;
+      }
+
+      /* ---------- education ---------- */
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+      }
+      .edu {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--panel);
+        padding: 20px;
+      }
+      .edu h3 {
+        font-family: var(--mono);
+        font-size: 0.9rem;
+        color: var(--accent);
+        margin: 0 0 12px;
+      }
+      .edu ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        display: grid;
+        gap: 8px;
+      }
+      .edu .head {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* ---------- footer ---------- */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 56px 0 40px;
+        text-align: center;
+      }
+      footer h2 {
+        margin-bottom: 14px;
+      }
+      footer p {
+        color: var(--muted);
+        margin: 0 auto 26px;
+        max-width: 40ch;
+      }
+      .social {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      .social a {
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        display: grid;
+        place-items: center;
+        color: var(--text);
+      }
+      .social a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .social svg {
+        width: 20px;
+        height: 20px;
+      }
+      .colophon {
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        color: var(--faint);
+      }
+
+      /* reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="brand" href="#top">diego<span>.nava</span> &gt;_</a>
+        <nav class="nav-links">
+          <a href="#about">// about</a>
+          <a href="#skills">// skills</a>
+          <a href="#experience">// experience</a>
+          <a href="#projects">// projects</a>
+          <a href="#contact">// contact</a>
+          <button
+            class="toggle"
+            id="themeToggle"
+            aria-label="Toggle color theme"
+            title="Toggle theme"
+          >
+            <span id="themeIcon">☀︎</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="avatar" title="Diego Navarro">
+              <!-- Add your photo: drop assets/headshot.jpg in the repo and it replaces the monogram. -->
+              <span aria-hidden="true">DN</span>
+            </div>
+            <span class="status"><span class="dot"></span> Open to Automation / SDET roles</span>
+            <h1>Diego Navarro</h1>
+            <p class="role">QA Lead <span class="arrow">→</span> SDET</p>
+            <p class="lede">
+              I design and scale <strong>test automation</strong> across gaming, web,
+              mobile &amp; streaming — building reliable pipelines, resilient frameworks,
+              and the infrastructure that keeps them green.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.linkedin.com/in/diegonava150/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                LinkedIn
+              </a>
+              <a class="btn btn-ghost" href="./Diego-Navarro-CV.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download CV
+              </a>
+              <a class="btn btn-ghost" href="https://github.com/Diegonava150" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="term" aria-hidden="true">
+            <div class="term-bar">
+              <i class="r"></i><i class="y"></i><i class="g"></i>
+              <span class="file">diego.spec.ts — playwright test</span>
+            </div>
+            <div class="term-body" id="termBody"><span class="term-line cmd" style="animation-delay:.05s">npx playwright test diego.spec.ts</span>
+<span class="term-line muted" style="animation-delay:.5s">Running 1 test using 1 worker</span>
+<span class="term-line" style="animation-delay:.9s"><span class="ok">  ✓</span> Diego Navarro <span class="muted">›</span> <span class="k">QA Lead → SDET</span> <span class="muted">(EA, 2026–present)</span></span>
+<span class="term-line" style="animation-delay:1.25s"><span class="ok">  ✓</span> automation across gaming · web · mobile · streaming</span>
+<span class="term-line" style="animation-delay:1.6s"><span class="ok">  ✓</span> Playwright · Selenium · CI/CD · API testing</span>
+<span class="term-line" style="animation-delay:2s"><span class="ok">  1 passed</span> <span class="muted">(0.42s)</span>  ·  based in Bogotá, CO 🇨🇴</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="wrap reveal">
+          <p class="eyebrow">// about</p>
+          <h2>QA Lead, engineering toward SDET.</h2>
+          <div class="about-grid">
+            <div>
+              <p>
+                I'm a QA Lead transitioning into <strong>SDET</strong>, with experience
+                designing and scaling automation solutions across gaming, web, mobile and
+                streaming platforms. At <strong>Electronic Arts</strong> I act as an
+                <strong>Automation POC</strong> — driving automation strategy, improving
+                workflows, and supporting distributed execution environments.
+              </p>
+              <p>
+                I care about making testing faster and more reliable: cutting manual
+                effort, hardening pipelines, and building frameworks that stay green.
+                Right now I'm going deep on hands-on automation with
+                <strong>Playwright</strong> and modern frameworks — including agentic,
+                self-healing test workflows.
+              </p>
+              <ul class="specials">
+                <li><span class="ic">▹</span> <span><strong>Automation pipelines</strong> &amp; large-scale validation workflows</span></li>
+                <li><span class="ic">▹</span> <span><strong>QA infrastructure</strong> &amp; test environments</span></li>
+                <li><span class="ic">▹</span> <span><strong>Cross-functional collaboration</strong> with engineering &amp; production teams</span></li>
+              </ul>
+            </div>
+            <aside class="facts">
+              <dl>
+                <div><dt>Role</dt><dd>QA Lead → SDET</dd></div>
+                <div><dt>Location</dt><dd>Bogotá, D.C., Colombia</dd></div>
+                <div><dt>Focus</dt><dd>Playwright · CI/CD · API &amp; Infra testing</dd></div>
+                <div><dt>Languages</dt><dd>Spanish (native) · English (C2)</dd></div>
+                <div><dt>Status</dt><dd style="color:var(--pass)">Open to SDET roles</dd></div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="wrap reveal">
+          <p class="eyebrow">// skills</p>
+          <h2>The toolchain I test with.</h2>
+          <div class="skills">
+            <div class="skillcard">
+              <h3>Test Automation</h3>
+              <div class="chips">
+                <span class="chip">Playwright</span><span class="chip">Selenium</span>
+                <span class="chip">Appium</span><span class="chip">Cucumber (BDD)</span>
+                <span class="chip">REST Assured</span><span class="chip">Postman</span>
+              </div>
+            </div>
+            <div class="skillcard">
+              <h3>CI/CD</h3>
+              <div class="chips">
+                <span class="chip">Jenkins</span><span class="chip">GitHub Actions</span>
+                <span class="chip">Git</span>
+              </div>
+            </div>
+            <div class="skillcard">
+              <h3>QA Tooling</h3>
+              <div class="chips">
+                <span class="chip">Jira / Xray</span><span class="chip">TestRail</span>
+                <span class="chip">Datadog</span><span class="chip">Charles / Proxyman</span>
+              </div>
+            </div>
+            <div class="skillcard">
+              <h3>Languages</h3>
+              <div class="chips">
+                <span class="chip">TypeScript</span><span class="chip">JavaScript</span>
+                <span class="chip">Java</span><span class="chip">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="wrap reveal">
+          <p class="eyebrow">// experience</p>
+          <h2>Where I've shipped quality.</h2>
+          <div class="timeline">
+            <div class="tl">
+              <p class="when">Jan 2026 — Present · Colombia</p>
+              <h3>QA Lead Tester · <span class="co">Electronic Arts (EA)</span></h3>
+              <p style="margin:6px 0 0;color:var(--muted)">Automation POC driving automation strategy and execution across large-scale validation workflows.</p>
+              <ul>
+                <li>Led end-to-end automation pipelines — execution, monitoring &amp; failure analysis.</li>
+                <li>Defined and implemented automation strategies to improve efficiency and reduce manual effort.</li>
+                <li>Supported distributed test infrastructure (environments, execution setups, configs) and JSON/Python execution logic.</li>
+                <li>Delivered reporting and insights from automation runs to support release decisions.</li>
+              </ul>
+            </div>
+            <div class="tl">
+              <p class="when">Aug 2023 — Jan 2026 · Colombia</p>
+              <h3>QC Analyst · <span class="co">Globant</span></h3>
+              <p style="margin:6px 0 0;color:var(--muted)">QA across web, mobile &amp; streaming platforms — functional validation, API testing and automation.</p>
+              <ul>
+                <li>Functional, regression &amp; exploratory testing across streaming, mobile and e-commerce apps.</li>
+                <li>API validation with Postman; analytics &amp; debugging with Datadog and Charles/Proxyman.</li>
+                <li>Automation support with Selenium, Playwright and Cucumber/Gherkin (BDD).</li>
+                <li>Defect &amp; traceability management in Jira/Xray and TestRail within Agile teams.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="wrap reveal">
+          <p class="eyebrow">// projects</p>
+          <h2>Things I've built.</h2>
+          <div class="projects">
+            <article class="card feature">
+              <div class="card-top">
+                <h3>🎭 playwright-ai-integration-e2e-api</h3>
+                <span class="taglang">TypeScript</span>
+              </div>
+              <p>
+                A Playwright + TypeScript <strong>E2E &amp; API</strong> framework with deep
+                <strong>AI integration</strong> — MCP authoring agents, in-test LLM
+                assertions, and AI-powered CI failure triage. Page Objects, sharded CI,
+                accessibility &amp; visual regression, and a graceful anti-bot preflight.
+              </p>
+              <div class="feature-meta">
+                <span class="chip">Playwright</span><span class="chip">TypeScript</span>
+                <span class="chip">AI / MCP</span><span class="chip">CI/CD</span>
+                <span class="chip">API</span>
+              </div>
+              <a class="more" href="https://github.com/Diegonava150/playwright-ai-integration-e2e-api" target="_blank" rel="noopener">View on GitHub →</a>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <h3>restassured-automation</h3>
+                <span class="taglang">Java</span>
+              </div>
+              <p>API test automation built with REST Assured — request/response validation and reusable test structure.</p>
+              <a class="more" href="https://github.com/Diegonava150/restassured-automation" target="_blank" rel="noopener">View on GitHub →</a>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <h3>appium-wdio-js</h3>
+                <span class="taglang">JavaScript</span>
+              </div>
+              <p>Mobile test automation with Appium and WebdriverIO — device flows and cross-platform checks.</p>
+              <a class="more" href="https://github.com/Diegonava150/appium-wdio-js" target="_blank" rel="noopener">View on GitHub →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="wrap reveal">
+          <p class="eyebrow">// certifications &amp; education</p>
+          <h2>Foundations.</h2>
+          <div class="edu-grid">
+            <div class="edu">
+              <h3>Education</h3>
+              <ul>
+                <li><span class="head">B.Tech, Software Analysis &amp; Development</span><br />SENA · 2022–2024</li>
+                <li><span class="head">The Frontend Developer Career Path</span><br />Scrimba · 2022–2023</li>
+              </ul>
+            </div>
+            <div class="edu">
+              <h3>Certifications</h3>
+              <ul>
+                <li>Test Automation Foundations</li>
+                <li>Learning Selenium</li>
+                <li>Absolute Introduction to OOP in Java</li>
+                <li>EF SET English Certificate — 85/100 (C2)</li>
+              </ul>
+            </div>
+            <div class="edu">
+              <h3>Languages</h3>
+              <ul>
+                <li><span class="head">Spanish</span> — Native / Bilingual</li>
+                <li><span class="head">English</span> — Full Professional (C2)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <footer id="contact">
+        <div class="wrap reveal">
+          <p class="eyebrow" style="text-align:center">// contact</p>
+          <h2>Let's build reliable, intelligent automation.</h2>
+          <p>Open to Automation Engineering / SDET roles. The fastest way to reach me is LinkedIn or email.</p>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/diegonava150/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="mailto:diegojose150@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            </a>
+            <a href="https://github.com/Diegonava150" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            </a>
+          </div>
+          <p class="colophon">Built with plain HTML &amp; CSS · deployed on GitHub Pages · © <span id="yr"></span> Diego Jose Navarro Ruiz</p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // theme toggle
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      function sync() {
+        icon.textContent = root.getAttribute('data-theme') === 'dark' ? '☀︎' : '☾';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('theme', next);
+        } catch (e) {}
+        sync();
+      });
+
+      // year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // scroll reveal
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        io.observe(el);
+      });
+    </script>
+  </body>
+</html>
