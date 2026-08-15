@@ -6,7 +6,7 @@
     <title>Diego Navarro — QA Lead → SDET</title>
     <meta
       name="description"
-      content="Diego Jose Navarro Ruiz — QA Lead transitioning into SDET. Test automation across gaming, web, mobile & streaming with Playwright, Selenium, CI/CD and API testing."
+      content="Diego Jose Navarro Ruiz — QA Lead transitioning into SDET. Test automation across gaming, web, mobile & streaming with Playwright, Appium, Selenium, CI/CD and API testing."
     />
 
     <!-- Open Graph / social preview -->
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Diego Navarro — QA Lead → SDET" />
     <meta
       property="og:description"
-      content="Test automation across gaming, web, mobile &amp; streaming — Playwright, Selenium, CI/CD &amp; API testing."
+      content="Test automation across gaming, web, mobile &amp; streaming — Playwright, Appium, Selenium, CI/CD &amp; API testing."
     />
     <meta property="og:image" content="https://diegonava150.github.io/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -25,7 +25,7 @@
     <meta name="twitter:title" content="Diego Navarro — QA Lead → SDET" />
     <meta
       name="twitter:description"
-      content="Test automation across gaming, web, mobile &amp; streaming — Playwright, Selenium, CI/CD &amp; API testing."
+      content="Test automation across gaming, web, mobile &amp; streaming — Playwright, Appium, Selenium, CI/CD &amp; API testing."
     />
     <meta name="twitter:image" content="https://diegonava150.github.io/og-image.png" />
     <link
@@ -624,6 +624,17 @@
         font-size: 0.85rem;
         margin-top: auto;
       }
+      /* Two links in one card: keep them on one row so a single `margin-top:auto`
+         absorbs the free space, instead of each link claiming a share of it. */
+      .card .more-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin-top: auto;
+      }
+      .card .more-row .more {
+        margin-top: 0;
+      }
       .feature-meta {
         display: flex;
         flex-wrap: wrap;
@@ -793,7 +804,7 @@
 <span class="term-line muted" style="animation-delay:.5s">Running 1 test using 1 worker</span>
 <span class="term-line" style="animation-delay:.9s"><span class="ok">  ✓</span> Diego Navarro <span class="muted">›</span> <span class="k">QA Lead → SDET</span> <span class="muted">(EA, 2026–present)</span></span>
 <span class="term-line" style="animation-delay:1.25s"><span class="ok">  ✓</span> automation across gaming · web · mobile · streaming</span>
-<span class="term-line" style="animation-delay:1.6s"><span class="ok">  ✓</span> Playwright · Selenium · CI/CD · API testing</span>
+<span class="term-line" style="animation-delay:1.6s"><span class="ok">  ✓</span> Playwright · Appium · Selenium · CI/CD · API testing</span>
 <span class="term-line" style="animation-delay:2s"><span class="ok">  1 passed</span> <span class="muted">(0.42s)</span>  ·  based in Bogotá, CO 🇨🇴</span></div>
           </div>
         </div>
@@ -817,8 +828,16 @@
                 I care about making testing faster and more reliable: cutting manual
                 effort, hardening pipelines, and building frameworks that stay green.
                 Right now I'm going deep on hands-on automation with
-                <strong>Playwright</strong> and modern frameworks — including agentic,
-                self-healing test workflows.
+                <strong>Playwright</strong> and <strong>Appium</strong>, including where
+                AI genuinely helps and where it doesn't.
+              </p>
+              <p>
+                My position on that: a framework that <em>silently</em> heals a broken
+                locator has not fixed the test, it has deleted the report. So in my mobile
+                framework healing keeps a run alive but is booked as debt — every rescue
+                recorded with its evidence, and unaccepted debt fails the build. Same
+                reasoning I apply to flaky tests, which carry an expiry date rather than a
+                retry count.
               </p>
               <ul class="specials">
                 <li><span class="ic">▹</span> <span><strong>Automation pipelines</strong> &amp; large-scale validation workflows</span></li>
@@ -830,7 +849,7 @@
               <dl>
                 <div><dt>Role</dt><dd>QA Lead → SDET</dd></div>
                 <div><dt>Location</dt><dd>Bogotá, D.C., Colombia</dd></div>
-                <div><dt>Focus</dt><dd>Playwright · CI/CD · API &amp; Infra testing</dd></div>
+                <div><dt>Focus</dt><dd>Playwright · Appium · CI/CD · API &amp; Infra testing</dd></div>
                 <div><dt>Languages</dt><dd>Spanish (native) · English (C2)</dd></div>
                 <div><dt>Status</dt><dd style="color:var(--pass)">Open to SDET roles</dd></div>
               </dl>
@@ -849,15 +868,17 @@
               <h3>Test Automation</h3>
               <div class="chips">
                 <span class="chip">Playwright</span><span class="chip">Selenium</span>
-                <span class="chip">Appium</span><span class="chip">Cucumber (BDD)</span>
-                <span class="chip">REST Assured</span><span class="chip">Postman</span>
+                <span class="chip">Appium</span><span class="chip">JUnit</span>
+                <span class="chip">Cucumber (BDD)</span><span class="chip">REST Assured</span>
+                <span class="chip">Postman</span>
               </div>
             </div>
             <div class="skillcard">
               <h3>CI/CD</h3>
               <div class="chips">
                 <span class="chip">Jenkins</span><span class="chip">GitHub Actions</span>
-                <span class="chip">Git</span>
+                <span class="chip">Git</span><span class="chip">Gradle</span>
+                <span class="chip">Allure</span>
               </div>
             </div>
             <div class="skillcard">
@@ -916,6 +937,38 @@
           <p class="eyebrow">// projects</p>
           <h2>Things I've built.</h2>
           <div class="projects">
+            <article class="card feature">
+              <div class="card-top">
+                <h3>📱 appium-java-mobile-automation</h3>
+                <span class="taglang">Java</span>
+              </div>
+              <p>
+                A cross-platform mobile framework — <strong>Appium 3 · Java 21 · JUnit 6</strong> —
+                where one test runs on Android and iOS with no <code>if (isAndroid())</code> in it.
+                Device pool with per-slot port isolation, in-place app upgrade testing, performance
+                budgets, an accessibility audit, and visual regression. Five CI lanes green,
+                including a real iOS simulator.
+              </p>
+              <p>
+                Its argument is that <strong>flakiness is debt, not a retry setting</strong>:
+                quarantined tests carry an expiry date and fail the build once it passes. The
+                optional AI layer follows the same rule — it can rescue a broken locator to keep a
+                run alive, but every rescue is recorded and <strong>unaccepted debt fails the
+                build</strong>. A CI job deletes the whole AI module and runs the suite without it,
+                so "optional" is enforced rather than claimed.
+              </p>
+              <div class="feature-meta">
+                <span class="chip">Appium 3</span><span class="chip">Java 21</span>
+                <span class="chip">JUnit 6</span><span class="chip">Gradle</span>
+                <span class="chip">Android + iOS</span><span class="chip">Allure</span>
+                <span class="chip">AI / MCP</span>
+              </div>
+              <div class="more-row">
+                <a class="more" href="https://github.com/Diegonava150/appium-java-mobile-automation" target="_blank" rel="noopener">View on GitHub →</a>
+                <a class="more" href="https://diegonava150.github.io/appium-java-mobile-automation/" target="_blank" rel="noopener">Live Allure report →</a>
+              </div>
+            </article>
+
             <article class="card feature">
               <div class="card-top">
                 <h3>🎭 playwright-ai-integration-e2e-api</h3>
