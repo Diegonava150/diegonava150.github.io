@@ -875,6 +875,7 @@
                 <span class="chip">WebdriverIO</span><span class="chip">Maestro</span>
                 <span class="chip">Cucumber (BDD)</span><span class="chip">Page Object Model</span>
                 <span class="chip">REST Assured</span><span class="chip">Postman</span>
+                <span class="chip">Mutation testing</span><span class="chip">JSON Schema / OpenAPI</span>
               </div>
             </div>
             <div class="skillcard">
@@ -884,7 +885,8 @@
                 <span class="chip">GitLab CI</span><span class="chip">Docker</span>
                 <span class="chip">Testcontainers</span><span class="chip">Gradle</span>
                 <span class="chip">Maven</span><span class="chip">Allure</span>
-                <span class="chip">Git</span>
+                <span class="chip">Git</span><span class="chip">Dependabot</span>
+                <span class="chip">gitleaks</span><span class="chip">Branch protection</span>
               </div>
             </div>
             <div class="skillcard">
@@ -963,8 +965,8 @@
                 A cross-platform mobile framework — <strong>Appium 3 · Java 21 · JUnit 6</strong> —
                 where one test runs on Android and iOS with no <code>if (isAndroid())</code> in it.
                 Device pool with per-slot port isolation, in-place app upgrade testing, performance
-                budgets, an accessibility audit, and visual regression. Five CI lanes green,
-                including a real iOS simulator.
+                budgets, an accessibility audit, and visual regression. Six CI lanes, including
+                two Android API levels and a real iOS simulator.
               </p>
               <p>
                 Its argument is that <strong>flakiness is debt, not a retry setting</strong>:
@@ -973,6 +975,15 @@
                 run alive, but every rescue is recorded and <strong>unaccepted debt fails the
                 build</strong>. A CI job deletes the whole AI module and runs the suite without it,
                 so "optional" is enforced rather than claimed.
+              </p>
+              <p>
+                The same habit applied to a slow, intermittently red iOS lane. Rather than tuning
+                capabilities and hoping, I read the session timings out of the Appium log: the
+                first session cost <strong>432s against a 420s client timeout</strong> — twelve
+                seconds, which is why it failed some runs and not others — and session setup
+                turned out to be <strong>63% of the entire lane</strong>. The ceiling was raised
+                against the measurement rather than against arithmetic, and the cold start moved
+                into a named warm-up step that verifies its own work.
               </p>
               <div class="feature-meta">
                 <span class="chip">Appium 3</span><span class="chip">Java 21</span>
@@ -995,7 +1006,14 @@
                 A Playwright + TypeScript <strong>E2E &amp; API</strong> framework with deep
                 <strong>AI integration</strong> — MCP authoring agents, in-test LLM
                 assertions, and AI-powered CI failure triage. Page Objects, sharded CI,
-                accessibility &amp; visual regression, and a graceful anti-bot preflight.
+                accessibility &amp; visual regression.
+              </p>
+              <p>
+                The demo target serves an anti-bot challenge to datacenter IPs, so CI decides
+                whether it can reach the site <strong>on the runner that will execute the
+                tests</strong>, and skips rather than fails when it can't. An earlier version
+                asked a separate job on a different machine — a different IP, and therefore a
+                different answer.
               </p>
               <div class="feature-meta">
                 <span class="chip">Playwright</span><span class="chip">TypeScript</span>
@@ -1005,13 +1023,42 @@
               <a class="more" href="https://github.com/Diegonava150/playwright-ai-integration-e2e-api" target="_blank" rel="noopener">View on GitHub →</a>
             </article>
 
-            <article class="card">
+            <article class="card feature">
               <div class="card-top">
-                <h3>restassured-automation</h3>
+                <h3>🧪 restassured-automation</h3>
                 <span class="taglang">Java</span>
               </div>
-              <p>API test automation built with REST Assured — request/response validation and reusable test structure.</p>
-              <a class="more" href="https://github.com/Diegonava150/restassured-automation" target="_blank" rel="noopener">View on GitHub →</a>
+              <p>
+                <strong>REST Assured · Cucumber 7 · JUnit Platform</strong> against an API the
+                suite <strong>starts itself</strong> — Postgres and PostgREST in Testcontainers.
+                <code>./mvnw test</code> and nothing else: no API key, no account, no hosted
+                sandbox to go stale. It replaced a suite pointed at a shared mock, which had
+                filled to its row cap and been failing on
+                <code>Max number of elements reached</code> ever since.
+              </p>
+              <p>
+                A real database means the negative tests assert real behaviour — <code>23505</code>
+                on a duplicate email, <code>23514</code> on a failed CHECK, and a genuine race
+                where two writers contend for one unique index and exactly one loses.
+              </p>
+              <p>
+                Its argument is that <strong>a negative test nobody has watched fail proves
+                nothing</strong>. A CI job re-runs the whole suite against a deliberately weakened
+                schema and requires every assertion on a checked-in list to go red. Writing that
+                list down is what showed the real coverage was <strong>five of nine negative
+                scenarios, not nine of nine</strong> — and two of the remainder are documented as
+                <em>not</em> coverable this way rather than quietly counted.
+              </p>
+              <div class="feature-meta">
+                <span class="chip">REST Assured</span><span class="chip">Cucumber 7</span>
+                <span class="chip">Testcontainers</span><span class="chip">PostgreSQL</span>
+                <span class="chip">PostgREST</span><span class="chip">Mutation testing</span>
+                <span class="chip">Allure</span>
+              </div>
+              <div class="more-row">
+                <a class="more" href="https://github.com/Diegonava150/restassured-automation" target="_blank" rel="noopener">View on GitHub →</a>
+                <a class="more" href="https://diegonava150.github.io/restassured-automation/" target="_blank" rel="noopener">Live Allure report →</a>
+              </div>
             </article>
 
             <article class="card">
